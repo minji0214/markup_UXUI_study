@@ -50,3 +50,52 @@ wrap-reverse: 여러줄을 아래에서 위 방향으로 */
 ```
   flex-flow: column wrap;
 ```
+
+- justify-content: main axis에 따른 align을 정의한다.
+- gap : flex items 사이의 간격 (grid의 gutter와 비슷)/ 추가적으로 grid에서도 작동함.
+
+```css
+.container {
+  display: flex;
+  ...
+  gap: 10px;
+  gap: 10px 20px; /* row-gap column gap */
+  row-gap: 10px;
+  column-gap: 20px;
+}
+```
+
+- flex-grow: 모든 아이템이 1로 Flez-grow가 지정되면, container의 남은 공간은 모든 자식들에게 동일하게 지정된다. 만약 자식 중 한개가 2로 지정된다면 그 자식은 다른 자식들보다 2배의 공간을 갖게 된다. 단 -는 없다.
+
+```css
+.item {
+  flex-grow: 4; /* default 0 */
+}
+```
+
+- flex-shrink: flex item이 줄어드는 것을 정의한다. 가능하다면,
+
+```css
+.item {
+  flex-shrink: 3; /* default 1 */
+}
+```
+
+- flex-basis: item의 디폴트사이즈를 정의한다.(남는 공강이 생기기 전에)--> 길이 혹은 키워드 ex ) 20%, 5rem, auto,max-content, min-content, fit-content
+- flex: flex-grow와 flex-shrink, flex-basis의 줄임말. 두번째, 세번째 파라미터는 옵션이다. 기본은 0 1 aut0/ 개별적으로 사용하는 것보다. flex를 사용하는것을 추천한다.
+
+```css
+.item {
+  flex: none | [ < "flex-grow" > < "flex-shrink" >? || < "flex-basis" > ];
+}
+```
+
+- align-self //align items:
+  order
+
+## prifixing flexbox
+
+\*\*\*주로 사용하는 속성
+
+1. flex : 1 16%
+2. flex-grow : 1

@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <!-- em은 단어 강조 -->
     <p>hello <em>world</em></p>
-    <!-- bold type --> em과 비슷 -->
-    <strong>world</strong> 
-    
-    <!-- selfclosing tag --> 닫아도 되고, 안닫아도 된다. 
+    <!-- bold type -->
+    em과 비슷 -->
+    <strong>world</strong>
+
+    <!-- selfclosing tag -->
+    닫아도 되고, 안닫아도 된다.
     <!-- hr태그는 수평선  -->
-    <hr/>
-<!-- a 태그는 중요한 태그중 하나 --> 하이퍼링크 -->
-<!-- title attribute는 hover시 보여줌 -->
-<!-- target attribute는 새탭열기 -->
-    <a href="" title="link" target="_blank">this is a link</a>  //inline element--> 한줄에 여러개
-    <p>hello, word</p>  //block element --> 한줄에 하나
+    <hr />
+    <!-- a 태그는 중요한 태그중 하나 -->
+    하이퍼링크 -->
+    <!-- title attribute는 hover시 보여줌 -->
+    <!-- target attribute는 새탭열기 -->
+    <a href="" title="link" target="_blank">this is a link</a> //inline
+    element--> 한줄에 여러개
+    <p>hello, word</p>
+    //block element --> 한줄에 하나
     <p>hello, word</p>
     <p>hello, word</p>
 
-<!-- 중요도에 따라서 적절히 사용할것  -->
+    <!-- titles and headings 중요도에 따라서 적절히 사용할것  -->
     <h1>hello, world</h1>
     <h2>hello, world</h2>
     <h3>hello, world</h3>
     <h4>hello, world</h4>
     <h5>hello, world</h5>
     <h6>hello, world</h6>
-<!-- ul태그는 li태그가 unordered임을 의미 -->
+    <!-- ul태그는 li태그가 unordered임을 의미 -->
     <ul>
-        <li></li>
-        <li></li>
-        <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
     </ul>
     <!-- 반대로 ol태그가 있다. -->
     <ol>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ㅐ>
-</body>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+
+    <img src="" alt="" width="" height="" />
+    <video src="" width="" height="" controls autoplay loop muted>
+      <!-- fallback 멘트를 넣어준다. 비디오가 깨질때를 대비 -->
+      <p>footage of street and cars</p>
+    </video>
+
+    <button type="submit"></button>
+    <!-- 꿀팁: form 안에 ul,li태그로 정리할 경우 훨씬 깔끔한 ui가 가능하다.  -->
+    <form>
+      <!-- labeld은 두가지 방법으로 사용가능 -->
+      <label for="id">first name</label>
+      <input id="id" type="" placeholder="" />
+      <label
+        >first name
+        <input type="" placeholder="" />
+        <textarea id="message" rows="10" cols="40"></textarea>
+      </label>
+      <button></button>
+    </form>
+  </body>
 </html>
