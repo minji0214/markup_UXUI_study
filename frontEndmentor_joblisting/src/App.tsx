@@ -2,8 +2,11 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { Header } from "./components/header";
+import { Layout } from "./components/Layout";
 import { createGlobalStyle } from "styled-components";
-import { Background } from "./components/background";
+import { JobList } from "./components/JobList";
+import { MainPage } from "./MainPage";
+import { JobStore } from "./JobStore";
 const GlobalStyles = createGlobalStyle`
   html {
     --color-text: black;
@@ -13,12 +16,11 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 function App() {
+  const store = JobStore;
   return (
     <div className="App">
       <GlobalStyles />
-      <Background>
-        <Header />
-      </Background>
+      <MainPage store={store} />
     </div>
   );
 }

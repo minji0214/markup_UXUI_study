@@ -2,7 +2,8 @@ import { ReactComponent as Bg } from "../../public/images/bg-header-desktop.svg"
 import { ReactComponent as Bg_mobile } from "../../public/images/bg-header-mobile.svg";
 import styled from "styled-components";
 import { Children } from "react";
-export const Background: React.FC<{ children?: React.ReactNode }> = ({
+
+export const Layout: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
   return (
@@ -21,7 +22,7 @@ export const Background: React.FC<{ children?: React.ReactNode }> = ({
 
 const BackgroundWrapper = styled.div`
   .imgWrapper {
-    background-color: rgb(5, 250, 250);
+    background-color: rgba(93, 165, 164, 255);
   }
   .background {
     position: absolute;
@@ -45,5 +46,6 @@ const BackgroundWrapper = styled.div`
   }
   .children {
     position: relative;
+    padding: 8.5% 10%;
   }
 `;
