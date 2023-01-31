@@ -28,12 +28,14 @@ const BackgroundWrapper = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   .bottomBg {
     height: 100vh;
     background-color: rgb(238, 246, 246);
   }
   .bgDesktop {
+    width: 100%;
     @media (max-width: 375px) {
       display: none;
     }
@@ -46,6 +48,6 @@ const BackgroundWrapper = styled.div`
   }
   .children {
     position: relative;
-    padding: 8.5% 10%;
+    padding: 120px 10% 10px 10%;
   }
 `;

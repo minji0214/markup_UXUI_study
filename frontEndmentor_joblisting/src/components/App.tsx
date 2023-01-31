@@ -1,12 +1,9 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
-import { Header } from "./components/header";
-import { Layout } from "./components/Layout";
+import "../css/App.css";
 import { createGlobalStyle } from "styled-components";
-import { JobList } from "./components/JobList";
 import { MainPage } from "./MainPage";
-import { JobStore } from "./JobStore";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 const GlobalStyles = createGlobalStyle`
   html {
     --color-text: black;
@@ -16,11 +13,14 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 function App() {
-  const store = JobStore;
+  const queryClient = new QueryClient();
   return (
     <div className="App">
       <GlobalStyles />
-      <MainPage store={store} />
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={true} />
+        <MainPage />
+      </QueryClientProvider>
     </div>
   );
 }

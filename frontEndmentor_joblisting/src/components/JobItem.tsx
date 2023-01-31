@@ -1,38 +1,43 @@
 import styled from "styled-components";
+import { JobItemType } from "./MainPage";
 
-export const JobItem: React.FC<{}> = ({}) => {
+interface JobItemProps {
+  item: JobItemType;
+}
+
+export const JobItem: React.FC<JobItemProps> = ({ item }) => {
   return (
     <JobItemWrapper>
       <div className="leftContent-wrapper">
-        <img
-          src="https://picsum.photos/200/300"
-          width={80}
-          height={80}
-          alt="logo"
-        />
+        <img src={item.logo} width={80} height={80} alt="logo" />
         <div className="content-wrapper">
           <div className="top">
-            <div className="company">company</div>
-            <div className="new">new</div>
-            <div className="featured">featured</div>
+            <div className="company">{item.company}</div>
+            {item.new && <div className="new">new</div>}
+            {item.featured && <div className="featured">featured</div>}
           </div>
 
           <div className="middle">
-            <div className="position">position</div>
+            <div className="position">{item.position}</div>
           </div>
           <div className="bottom">
-            <div className="postedAt">postedAt</div>
+            <div className="postedAt">{item.postedAt}</div>
             <span>&#183;</span>
-            <div className="contract">contract</div>
+            <div className="contract">{item.contract}</div>
             <span>&#183;</span>
-            <div className="location">location</div>
+            <div className="location">{item.location}</div>
           </div>
           <hr className="hr" />
         </div>
       </div>
 
       <div className="rightContent-wrapper">
-        <div>languages</div>
+        {item.languages.map((language, idx) => (
+          <div key={idx}>{language}</div>
+        ))}
+        {item.tools.map((tool, idx) => (
+          <div key={idx}>{tool}</div>
+        ))}
         <div>tools</div>
       </div>
     </JobItemWrapper>
@@ -92,6 +97,8 @@ const JobItemWrapper = styled.div`
       background-color: black;
       color: white;
       border-radius: 15px;
+      margin: 0 auto;
+      text-align: center;
     }
     .middle {
       float: left;
