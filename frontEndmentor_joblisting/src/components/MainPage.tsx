@@ -22,13 +22,16 @@ export interface JobItemType {
   tools: string[];
 }
 
-//!우선 데이터를 가져온다.
-//!데이터 타입지정
+//! 태그 추가 ==> tools,language로 나뉨.
+//! tool이면 tool에서 찾고, language면 language에서 찾기
+//! 해당 키워드가 있는지 리스트에서 찾기
+
 const fetchJobList = (): Promise<JobItemType[]> => {
   return axios.get("./public/data.json").then((response) => response.data);
 };
 
 export const MainPage: React.FC<{}> = ({}) => {
+  const [tagArr, setTagArr] = useState<string[]>([]);
   const [loadingStatus, setIsLoadingStatus] = useState(false);
   const queryClient = useQueryClient();
   const query = useQuery<JobItemType[], Error, JobItemType[]>(
@@ -49,11 +52,11 @@ export const MainPage: React.FC<{}> = ({}) => {
   }
   const fetchQuery = query.data;
   const jobList = fetchQuery as JobItemType[];
-  console.log("jobList", jobList);
+
   return (
     <Layout>
-      <Header />
-      <JobList list={jobList} />
+      {tagArr.length > 0 && <Header tagArr={tagArr} setTagArr={setTagArr} />}
+      <JobList setTagArr={setTagArr} list={jobList} />
     </Layout>
   );
 };

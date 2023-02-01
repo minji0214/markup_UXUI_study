@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import { JobItemType } from "./MainPage";
+import React, { useState, Dispatch, SetStateAction } from "react";
 
 interface JobItemProps {
   item: JobItemType;
+  setTagArr: Dispatch<SetStateAction<string[]>>;
 }
 
-export const JobItem: React.FC<JobItemProps> = ({ item }) => {
+export const JobItem: React.FC<JobItemProps> = ({ item, setTagArr }) => {
+  const addTagHandler = (newTag: string) => {
+    setTagArr((prev) => [...prev, newTag]);
+  };
+
   return (
     <JobItemWrapper>
       <div className="leftContent-wrapper">
@@ -33,12 +39,15 @@ export const JobItem: React.FC<JobItemProps> = ({ item }) => {
 
       <div className="rightContent-wrapper">
         {item.languages.map((language, idx) => (
-          <div key={idx}>{language}</div>
+          <div onClick={() => addTagHandler(language)} key={idx}>
+            {language}
+          </div>
         ))}
         {item.tools.map((tool, idx) => (
-          <div key={idx}>{tool}</div>
+          <div onClick={() => addTagHandler(tool)} key={idx}>
+            {tool}
+          </div>
         ))}
-        <div>tools</div>
       </div>
     </JobItemWrapper>
   );

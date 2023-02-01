@@ -1,30 +1,40 @@
 import styled from "styled-components";
 import { ReactComponent as Remove } from "../../public/images/icon-remove.svg";
+import React, { useState, Dispatch, SetStateAction } from "react";
 
-export const Header: React.FC<{}> = ({}) => {
+interface HeaderProps {
+  tagArr: string[];
+  setTagArr: Dispatch<SetStateAction<string[]>>;
+}
+
+export const Header: React.FC<HeaderProps> = ({ tagArr, setTagArr }) => {
+  const clearTagHandler = () => {
+    setTagArr([]);
+  };
+  const removeTagHandler = (tag: string) => {
+    const newArr = tagArr.filter((item) => item !== tag);
+    setTagArr([...newArr]);
+  };
   return (
     <HeaderWrapper>
       <div className="items-wrapper">
-        <div className="item-wrapper">
-          <span>Frontend</span>
-          <button className="close-btn">
-            <Remove />
-          </button>
-        </div>
-        <div className="item-wrapper">
-          <span>Frontend</span>
-          <button className="close-btn">
-            <Remove />
-          </button>
-        </div>
-        <div className="item-wrapper">
-          <span>Frontend</span>
-          <button className="close-btn">
-            <Remove />
-          </button>
-        </div>
+        {tagArr.map((tag, idx) => {
+          return (
+            <div key={idx} className="item-wrapper">
+              <span>{tag}</span>
+              <button
+                onClick={() => removeTagHandler(tag)}
+                className="close-btn"
+              >
+                <Remove />
+              </button>
+            </div>
+          );
+        })}
       </div>
-      <button className="clear-btn">Clear</button>
+      <button onClick={clearTagHandler} className="clear-btn">
+        Clear
+      </button>
     </HeaderWrapper>
   );
 };
